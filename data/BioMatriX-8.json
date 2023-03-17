@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "BioMatriX",
+  "risk": "2",
+  "title": "Chain ID Check : The contract only checks for sepcific chainID (7700) and does not account for potential fork or other networks with same ChainID",
+  "issueId": 8,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/8"
+}
