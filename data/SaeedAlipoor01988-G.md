@@ -72,3 +72,16 @@ This example can be replaced with the following construction to reduce gas costs
 +	 }
 +               }                                   
 +           }   
+
+******* Use assembly to write address storage values ******* 
+
+The following lines of code are affected:
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L80
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L107
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L109
+
+-         revenueAddress = _revenueAddress;
++                  assembly {                      
++                      sstore(revenueAddress .slot, _revenueAddress)
++                  }  
