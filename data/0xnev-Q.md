@@ -6,15 +6,14 @@
 | R  | Refactor | Code changes |
 | O | Ordinary | Commonly found issues |
 
-| Total Found Issues | 16 |
+| Total Found Issues | 15 |
 |:--:|:--:|
 
 ### Low Risk Issues
 | Count | Title | Instances |
 |:--:|:-------|:--:|
-| [L-01] | `owner` variable not set in `buy` function | 1 |
 
-| Total Low Risk Issues | 1 |
+| Total Low Risk Issues | 0 |
 |:--:|:--:|
 
 ### Non-Critical Issues
@@ -53,63 +52,6 @@
 | Total Ordinary Issues | 3 |
 |:--:|:--:|
 
-### [L-01] `owner` variable not set in `buy` function
-``` solidity
-/Tray.sol
-150:    function buy(uint256 _amount) external {
-151:        uint256 startingTrayId = _nextTokenId();
-152:        if (prelaunchMinted == type(uint256).max) {
-153:            // Still in prelaunch phase
-154:            if (msg.sender != owner) revert OnlyOwnerCanMintPreLaunch();
-155:            if (startingTrayId + _amount - 1 > PRE_LAUNCH_MINT_CAP) revert MintExceedsPreLaunchAmount(); 
-156:        } else {
-157:            SafeTransferLib.safeTransferFrom(note, msg.sender, revenueAddress, _amount * trayPrice);
-158:        }
-159:        for (uint256 i; i < _amount; ++i) {
-160:            TileData[TILES_PER_TRAY] memory trayTiledata;
-161:            for (uint256 j; j < TILES_PER_TRAY; ++j) {
-162:                lastHash = keccak256(abi.encode(lastHash));
-163:                trayTiledata[j] = _drawing(uint256(lastHash));
-164:            }
-165:            tiles[startingTrayId + i] = trayTiledata;
-166:        }
-167:        _mint(msg.sender, _amount); // We do not use _safeMint on purpose here to disallow callbacks and save gas
-168:    }
-```
-```solidity
-154: if (msg.sender != owner) revert OnlyOwnerCanMintPreLaunch();
-```
-
-Description:
-The `owner` variable is not declared and set in the `buy` function. Ensure that this is done so that contract can be deployed successfully
-
-Recommendation:
-Consider declaring `owner` variable and setting `owner ` address in constructor
-```solidity
-address public immutable owner;
-
-constructor(
-bytes32 _initHash,
-uint256 _trayPrice,
-address _revenueAddress,
-address _note,
-address _namespaceNFT,
-address _owner
-) ERC721A("Namespace Tray", "NSTRAY") Owned(msg.sender) {
-    lastHash = _initHash;
-    trayPrice = _trayPrice;
-    revenueAddress = _revenueAddress;
-    note = ERC20(_note);
-    namespaceNFT = _namespaceNFT;
-    owner = _owner;
-    if (block.chainid == 7700) {
-        // Register CSR on Canto mainnnet
-        Turnstile turnstile = Turnstile(0xEcf044C5B4b867CFda001101c617eCd347095B44);
-        turnstile.register(tx.origin);
-    }
-}
-
-```
 ### [N-01] For mordern and more readable code, update import usages
 ```solidity
 9 results - 5 files
