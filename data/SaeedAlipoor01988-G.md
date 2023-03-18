@@ -62,3 +62,13 @@ https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab
 https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L136
 https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L157
 https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L186
+
+This example can be replaced with the following construction to reduce gas costs:
+
++           if (condition == 0) {
++               if (condition  == 0) {
++                   if (condition  == 0) {
++                       Error.zeroInput();
++	 }
++               }                                   
++           }   
