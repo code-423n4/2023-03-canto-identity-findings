@@ -85,3 +85,17 @@ https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab
 +                  assembly {                      
 +                      sstore(revenueAddress .slot, _revenueAddress)
 +                  }  
+
+******* Setting the constructor to payable ******* 
+
+You can cut out 10 opcodes in the creation-time EVM bytecode if you declare a constructor payable. Making the constructor payable eliminates the need for an initial check of msg.value == 0 and saves 13 gas on deployment with no security risks.
+
+The following lines of code are affected:
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L32
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L57
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L98
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L73
+
+Recommendation:
+Set the constructor to payable
