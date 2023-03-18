@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "chaduke",
+  "risk": "2",
+  "title": "The same _bio string might be used to mint multiple Bio NFTs",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/18"
+}
