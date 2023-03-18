@@ -187,5 +187,5 @@ File: [2023-03-canto-identity/canto-namespace-protocol/src/Tray.sol](https://git
 File: [2023-03-canto-identity/canto-pfp-protocol/src/ProfilePicture.sol](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-pfp-protocol/src/ProfilePicture.sol#L60 )
 ```solidity
 60: if (block.chainid == 7700) {
-101: if (cidNFTID == 0 || addressRegistry.getAddress(cidNFTID) != ERC721(nftContract).ownerOf(nftID)) {
+
 ```
