@@ -99,3 +99,15 @@ https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab
 
 Recommendation:
 Set the constructor to payable
+
+******* Use constants instead of type(uintx).max ******* 
+
+type(uint120).max or type(uint112).max, etc. it uses more gas in the distribution process and also for each transaction than constant usage.
+
+The following lines of code are affected:
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L122
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L152
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L184
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L226
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L238
