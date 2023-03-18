@@ -6,15 +6,9 @@
 | R  | Refactor | Code changes |
 | O | Ordinary | Commonly found issues |
 
-| Total Found Issues | 15 |
+| Total Found Issues | 16 |
 |:--:|:--:|
 
-### Low Risk Issues
-| Count | Title | Instances |
-|:--:|:-------|:--:|
-
-| Total Low Risk Issues | 0 |
-|:--:|:--:|
 
 ### Non-Critical Issues
 | Count | Title | Instances |
@@ -24,10 +18,9 @@
 | [N-03] | Constructor lacks zero-address checks | 2 |
 | [N-04] | Critical address changes should use 2 step procedure | 4 |
 | [N-05] | Event missing parameter| 1 |
-| [N-06] | Remove function not used | 1 |
-| [N-07] | Initial value check missing in `change` functions | 7 |
+| [N-06] | Initial value check missing in `change` functions | 7 |
 
-| Total Non-Critical Issues | 7 |
+| Total Non-Critical Issues | 6 |
 |:--:|:--:|
 
 ### Refactor Issues
@@ -48,8 +41,10 @@
 | [O-01] | Missing natspec comments | 2 |
 | [O-02] | Add return parameters in natspec comments | 8 |
 | [O-03] | Commented out code | 1 |
+| [O-04] | Use of unlocked pragma using `>=` | 5 |
+| [O-05] | Contracts does not comply with order of function for solidity style guide | 7 |
 
-| Total Ordinary Issues | 3 |
+| Total Ordinary Issues | 5 |
 |:--:|:--:|
 
 ### [N-01] For mordern and more readable code, update import usages
@@ -194,20 +189,8 @@ Consider adding a two-steps pattern on critical changes to avoid mistakenly tran
 Description:
 There is a event missing parameter. Consider adding a parameter such as `prelaunchMinted` for better understanding of event emitted
 
-### [N-06] Remove function not used
-```solidity
-1 result - 1 file
 
-/Tray.sol
-276:    function _startTokenId() internal pure override returns (uint256) {
-277:        return 1;
-278:    }
-```
-
-Description:
-Remove function not used throughout the codebase saves deployment cost and reduces overall SLOC
-
- ### [N-07] Initial value check missing in `change` functions
+ ### [N-06] Initial value check missing in `change` functions
 ```solidity
 /Namespace.sol
 4 result - 2 files
@@ -472,3 +455,61 @@ Context:
 
 Recommendation:
 Remove commented out code
+
+### [O-4] Use of unlocked pragma using `>=`
+```solidity
+5 results - 5 files
+
+/ProfilePicture.sol
+2: pragma solidity >=0.8.0;
+
+/Bio.sol
+2: pragma solidity >=0.8.0;
+
+/Namespace.sol
+2: pragma solidity >=0.8.0;
+
+/Tray.sol
+2: pragma solidity >=0.8.0;
+
+/Utils.sol
+2: pragma solidity >=0.8.0;
+```
+
+Description:
+All the contracts in scope uses `>=` to specify solidity compiler version.
+
+Using `>=` without also specifying `<=` will lead to failures to compile, or external project incompatability, when the major version changes and there are breaking-changes, so locking of pragma is preferred regardless of the instance counts unless a contract is intended for consumption by other developers
+
+### [O-5] Contracts does not comply with order of function for solidity style guide
+Functions should be laid out in the following order for ease of search 
+   - constructor
+   - receive function (if exists)
+   - fallback function (if exists)
+   - external
+   - public
+   - internal
+   - private
+  
+Within a grouping, place the view and pure functions last.
+
+```solidity
+7 results - 4 files
+
+/ProfilePicture.sol
+79: function mint(address _nftContract, uint256 _nftID) external
+
+/Bio.sol
+43: function tokenURI(uint256 _id) public view override returns (string memory)
+
+/Namespace.sol
+90: function tokenURI(uint256 _id) public view override returns (string memory)
+
+/Tray.sol
+119: function tokenURI(uint256 _id) public view override returns (string memory)
+195: function getTile(uint256 _trayId, uint8 _tileOffset) external view returns (TileData memory tileData)
+203: function getTiles(uint256 _trayId) external view returns (TileData[TILES_PER_TRAY] memory tileData)
+276: function _startTokenId() internal pure override returns (uint256)
+```
+
+
