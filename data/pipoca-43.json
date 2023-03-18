@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "pipoca",
+  "risk": "2",
+  "title": "Validation of ERC721 Contract Address in ProfilePicture Mint Function Vulnerability",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/43"
+}
