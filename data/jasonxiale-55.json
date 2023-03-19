@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "XSS in NFT svg generation",
+  "issueId": 55,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/55"
+}
