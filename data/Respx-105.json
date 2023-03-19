@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Respx",
+  "risk": "2",
+  "title": "ProfilePicture.tokenURI() can return anything including hostile code or illegal content",
+  "issueId": 105,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/105"
+}
