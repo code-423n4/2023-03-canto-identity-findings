@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Polaris_tow",
+  "risk": "3",
+  "title": "ProfilePictureData is not stored, which will cause serious logic errors",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/61"
+}
