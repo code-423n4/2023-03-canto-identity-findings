@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Haipls",
+  "risk": "2",
+  "title": "User can inject malicious code in bio",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/91"
+}
