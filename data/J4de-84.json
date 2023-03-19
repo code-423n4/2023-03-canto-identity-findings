@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "J4de",
+  "risk": "3",
+  "title": "The `Bio/Namespace/Tray` contract may be used for XSS attacks",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/84"
+}
