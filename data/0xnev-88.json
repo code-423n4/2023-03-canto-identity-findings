@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "0xnev",
+  "risk": "2",
+  "title": "Bio, PFP and Namespace NFTs minted to an address that is a smart contract that cannot handle ERC721 tokens will be stuck forever",
+  "issueId": 88,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/88"
+}
