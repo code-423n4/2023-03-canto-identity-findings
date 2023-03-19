@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Kek",
+  "risk": "2",
+  "title": "Bio in `Bio.sol` allows the creation of malicious \\<svg> images",
+  "issueId": 109,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/109"
+}
