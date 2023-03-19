@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "A user can mint a PFP NFT multiple times using the same `_nftId`",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/96"
+}
