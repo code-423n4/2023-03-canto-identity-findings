@@ -1,4 +1,5 @@
-The state variable `subprotocolName` which is a string data type. This result in excessive gas usage when the variable is accessed repeatedly since string variables are expensive to store and manipulate.
+
+The protocol `ProfilePicture.sol` has the state variable `subprotocolName` in line number 35. which is a string data type. This result in excessive gas usage when the variable is accessed repeatedly since string variables are expensive to store and manipulate.
 
 `contract ProfilePicture is ERC721 {
     string public subprotocolName;
