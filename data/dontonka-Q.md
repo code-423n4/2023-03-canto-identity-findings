@@ -16,3 +16,17 @@ index 6d5757e..7ef6ed7 100644
      }
  }
 ```
+```diff
+diff --git a/canto-pfp-protocol/src/ProfilePicture.sol b/canto-pfp-protocol/src/ProfilePicture.sol
+index 54d814a..a7bdb56 100644
+--- a/canto-pfp-protocol/src/ProfilePicture.sol
++++ b/canto-pfp-protocol/src/ProfilePicture.sol
+@@ -83,7 +83,7 @@ contract ProfilePicture is ERC721 {
+         ProfilePictureData storage pictureData = pfp[tokenId];
+         pictureData.nftContract = _nftContract;
+         pictureData.nftID = _nftID;
+-        _mint(msg.sender, tokenId);
++        _mint(msg.sender, tokenId); //@audit (QA) same question as for Bio contract.
+         emit PfpAdded(msg.sender, tokenId, _nftContract, _nftID);
+     }
+```
