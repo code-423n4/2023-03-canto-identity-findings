@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Viktor_Cortess",
+  "risk": "2",
+  "title": "XSS via SVG with bio text",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/92"
+}
