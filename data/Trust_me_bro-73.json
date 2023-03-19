@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Trust_me_bro",
+  "risk": "3",
+  "title": "External calls can be manipulated",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/73"
+}
