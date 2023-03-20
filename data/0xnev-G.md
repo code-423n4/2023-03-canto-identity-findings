@@ -8,8 +8,9 @@
 | [G-06] | Use a more recent version of solidity | All |
 | [G-07] | Functions guranteed to revert when called by normal users can be marked `payable` | 5 |
 | [G-08] | Mark state variables as `private` instead of `public`  | 8 |
+| [G-09] | Mark state variables as `private` instead of `public`  | 1 |
 
-| Total Gas-Optimization Issues | 8 |
+| Total Gas-Optimization Issues | 9 |
 |:--:|:--:|
 
 ### [G-01] Initialize stack variables outside loop
@@ -186,3 +187,23 @@ Consider marking the functions as payable. However, it is valid if protocol deci
 
 Description:
 For state variables not accessed externally, we can set them as `private` instead of `public` to save significant gas
+
+### [G-09] Check amount before execution of functions for possible gas savings
+Context:
+```solidity
+1 result - 1 file
+
+/Tray.sol
+150:   function buy(uint256 _amount) external
+151:        uint256 startingTrayId = _nextTokenId();
+152:        if (prelaunchMinted == type(uint256).max) {
+153:            // Still in prelaunch phase
+154:            if (msg.sender != owner) revert OnlyOwnerCanMintPreLaunch();
+155:            if (startingTrayId + _amount - 1 > PRE_LAUNCH_MINT_CAP) revert MintExceedsPreLaunchAmount(); 
+156:        } else {
+157:            SafeTransferLib.safeTransferFrom(note, msg.sender, revenueAddress, _amount * trayPrice);
+158:        }
+```
+
+Description:
+Before execution of `safeTransferFrom` function, we should check if amount is zero to prevent wastage of gas when this function do not do anything upon execution
