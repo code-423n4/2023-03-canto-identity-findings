@@ -30,3 +30,19 @@ index 54d814a..a7bdb56 100644
          emit PfpAdded(msg.sender, tokenId, _nftContract, _nftID);
      }
 ```
+
+```diff
+diff --git a/canto-namespace-protocol/src/Tray.sol b/canto-namespace-protocol/src/Tray.sol
+index 4796cf6..e9a373c 100644
+--- a/canto-namespace-protocol/src/Tray.sol
++++ b/canto-namespace-protocol/src/Tray.sol
+@@ -103,7 +103,7 @@ contract Tray is ERC721A, Owned {
+         address _namespaceNFT
+     ) ERC721A("Namespace Tray", "NSTRAY") Owned(msg.sender) {
+         lastHash = _initHash;
+-        trayPrice = _trayPrice;
++        trayPrice = _trayPrice; //@audit (QA) This need to be expressed in $NOTE decimal (1e18), should there be a require statement here against a minimal or maximum to be safe?
+         revenueAddress = _revenueAddress;
+         note = ERC20(_note);
+         namespaceNFT = _namespaceNFT;
+```
