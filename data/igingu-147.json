@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "igingu",
+  "risk": "2",
+  "title": "Namespace protoccol: owner functions can be unaccessible by losing owner private key",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/147"
+}
