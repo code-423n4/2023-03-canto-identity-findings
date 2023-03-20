@@ -1,0 +1,3 @@
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L91
+
+The code has a bug on line 91. The comparison «if (_ownerOf[_id] == address(0))» is not correct because the function ownerOf is not defined in the contract, but it is inherited from ERC721 which has a function called ownerOf. The correct comparison will then be « if (ownerOf(_id) == address(0))».
