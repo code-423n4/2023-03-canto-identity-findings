@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "turvy_fuzz",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 195,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/195"
+}
