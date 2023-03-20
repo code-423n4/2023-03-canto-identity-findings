@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "SunSec",
+  "risk": "2",
+  "title": "Solmate safetransferfrom does not check the code size of the token address, which may lead to funding loss",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/180"
+}
