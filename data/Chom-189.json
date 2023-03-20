@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Chom",
+  "risk": "2",
+  "title": "PRNG is very predictable. One can predict which emoji and text they want. Possibly use revert trick.",
+  "issueId": 189,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/189"
+}
