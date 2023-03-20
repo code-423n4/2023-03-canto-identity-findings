@@ -181,3 +181,43 @@ Manual Analysis
 
 Consider using underscores for number literals to improve their readability.
 
+# 7: UPPERCASE IMMUTABLE VARIABLES
+
+Vulnerability details
+
+## Context:
+
+Uppercase immutable variables
+
+
+## Proof of Concept
+
+> ***File: Tray.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L37
+
+uint256 public immutable trayPrice;
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L50
+
+address public immutable namespaceNFT;
+
+> ***File: Namespace.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L17
+
+Tray public immutable tray;
+
+> ***File: ProfilePicture.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L14
+
+ICidNFT private immutable cidNFT;
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Immutable Variables should be UPPERCASE
