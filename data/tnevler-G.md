@@ -23,3 +23,16 @@
 **Description:**
 
 Some gas can be saved by using an unchecked {} block if an underflow isn't possible because of a previous require() or if-statement.
+
+### [G-2]: Revert operator should be in code as early as reasonably possible
+**Context:**
+
+```if (ERC721(_nftContract).ownerOf(_nftID) != msg.sender)``` [L81](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-pfp-protocol/src/ProfilePicture.sol#L81)
+
+**Recommendation:**
+Change to:
+```
+if (ERC721(_nftContract).ownerOf(_nftID) != msg.sender)
+     revert PFPNotOwnedByCaller(msg.sender, _nftContract, _nftID);
+uint256 tokenId = ++numMinted;
+```
