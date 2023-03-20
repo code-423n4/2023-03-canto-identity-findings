@@ -1,3 +1,30 @@
+## [L-01] Prefer using `_safeMint` over `_mint`
+Bio.sol, Namespace.sol, Tray.sol and ProfilePicture.sol use ERC721's `_mint` method, which is missing the check if the account to mint the NFT to is a smart contract that can handle ERC721 tokens. The `_safeMint` method does exactly this, so prefer using it over `_mint` but always add a `nonReentrant` modifier, since calls to `_safeMint` can reenter.
+
+```solidity
+File: canto-bio-protocol/src/Bio.sol
+126:    _mint(msg.sender, tokenId);
+```
+[Bio.sol#L126](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-bio-protocol/src/Bio.sol#L126)
+
+```solidity
+File: canto-namespace-protocol/src/Namespace.sol
+177:    _mint(msg.sender, namespaceIDToMint);
+```
+[Bio.sol#L177](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-bio-protocol/src/Bio.sol#L177)
+
+```solidity
+File: canto-namespace-protocol/src/Tray.sol
+167:    _mint(msg.sender, _amount); // We do not use _safeMint on purpose here to disallow callbacks and save gas
+```
+[Bio.sol#L167](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-bio-protocol/src/Bio.sol#L167)
+
+```solidity
+File: canto-pfp-protocol/src/ProfilePicture.sol
+126:    _mint(msg.sender, tokenId);
+```
+[Bio.sol#L86](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-bio-protocol/src/Bio.sol#L86)
+
 ## [N-01] Incosistent banner-like comments
 `STATE` comment in `ProfilePicture.sol` is duplicated and can be removed for consistency and clarity.
 
