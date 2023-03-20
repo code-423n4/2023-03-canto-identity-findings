@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "vagrant",
+  "risk": "2",
+  "title": "Missing check on trayPrice could lead to lost revenue",
+  "issueId": 196,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/196"
+}
