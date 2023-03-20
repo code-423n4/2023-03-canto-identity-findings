@@ -68,3 +68,35 @@ import {MerkleProofLib} from "solmate/utils/MerkleProofLib.sol";
 import {FixedPointMathLib} from "solmate/utils/FixedPointMathLib.sol";
 import {ERC1155, ERC1155TokenReceiver} from "solmate/tokens/ERC1155.sol";
 import {toWadUnsafe, toDaysWadUnsafe} from "solmate/utils/SignedWadMath.sol";
+
+# 3: ADD A LIMIT FOR THE MAXIMUM NUMBER OF CHARACTERS PER LINE
+
+Vulnerability details
+
+## Context:
+
+The solidity documentation recommends a maximum of 120 characters.
+
+For reference, see https://docs.soliditylang.org/en/v0.8.17/style-guide.html#maximum-line-length
+
+## Proof of Concept
+
+> ***2 Files, 5 Instances*** 
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L98
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L21
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L28
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L43
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L247
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Consider adding a limit of 120 characters or less to prevent large lines.
