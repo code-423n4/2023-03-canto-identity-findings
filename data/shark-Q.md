@@ -145,13 +145,13 @@ Custom errors can use parameters to show what actually went wrong.
 
 For example, the following errors could use parameters:
 
-https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L87-L88
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L88
 
-```solidity
+```diff
 File: Tray.sol
 
-87:    error OnlyOwnerCanMintPreLaunch();
-88:    error MintExceedsPreLaunchAmount();
+-    error MintExceedsPreLaunchAmount();
++    error MintExceedsPreLaunchAmount(uint256 amount, uint256 maxAmount);
 ```
 
 ## 9. Use named parameters for mapping type declarations
