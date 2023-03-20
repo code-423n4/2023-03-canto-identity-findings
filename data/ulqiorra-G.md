@@ -1,0 +1,1 @@
+It is recommended to use hashes of the strings (hashes of the HTML, SVG and so on) instead of the real data
