@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "reassor",
+  "risk": "3",
+  "title": "Bio Protocol - `tokenURI` JSON injection",
+  "issueId": 212,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/212"
+}
