@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "mojito_auditor",
+  "risk": "3",
+  "title": "Function `iteratePRNG()` fails to generate random number in edgecase `_currState = 0`",
+  "issueId": 126,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/126"
+}
