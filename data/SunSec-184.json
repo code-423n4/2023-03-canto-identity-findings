@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "SunSec",
+  "risk": "2",
+  "title": "one step owner transferRole transfer actions done in a single-step manner are dangerous",
+  "issueId": 184,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/184"
+}
