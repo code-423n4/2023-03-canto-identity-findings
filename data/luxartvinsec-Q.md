@@ -65,7 +65,7 @@ function splitStr(string memory s, uint chunkSize, uint i) internal pure returns
 ```
 # 3. Insecure random number generation: 
 ### Link : https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-namespace-protocol/src/Tray.sol#L245
-The current implementation of the `_drawing` function uses a simple modulo operation with the seed as an argument, which can be easily predicted by attackers. We recommend using a more secure random number generation algorithm, such as Keccak256 or SHA-3, to generate random numbers.
+The current implementation of the `_drawing` function uses a simple modulo operation with the seed as an argument, which can be easily predicted by attackers. I recommend using a more secure random number generation algorithm, such as Keccak256 or SHA-3, to generate random numbers.
 ```
 function _drawing(uint256 _seed) private pure returns (TileData memory tileData) {
     uint256 res = uint256(keccak256(abi.encodePacked(_seed))) % SUM_ODDS;
