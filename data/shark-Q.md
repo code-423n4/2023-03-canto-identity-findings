@@ -129,7 +129,7 @@ Using named imports can improve code readability.
 
 ## 7. Check effect interactions pattern not used
 
-In the `fuse()` function of the `Namespace` contract, the [Checks Effects Interactions Pattern](https://fravoll.github.io/solidity-patterns/checks_effects_interactions.html) is not followed when performing transactions. it is recommended to follow the Check Effects Interactions as a best practice for this function.
+In the `fuse()` function of the `Namespace` contract, the [Checks Effects Interactions Pattern](https://fravoll.github.io/solidity-patterns/checks_effects_interactions.html) is not followed when performing transactions. It is recommended to follow the Check Effects Interactions to prevent reentrancy bugs.
 
 For example, the following `safeTransferFrom` should be performed once all state variables have been updated accordingly:
 
@@ -137,4 +137,17 @@ File: `Namespace.sol` [Line 114](https://github.com/code-423n4/2023-03-canto-ide
 
 ```
         SafeTransferLib.safeTransferFrom(note, msg.sender, revenueAddress, fusingCosts);
+```
+
+## 8. Custom errors can be used with parameters
+
+Custom errors can use parameters to show what actually went wrong.
+
+For example, the following errors could use parameters:
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L87-L88
+
+```solidity
+    error OnlyOwnerCanMintPreLaunch();
+    error MintExceedsPreLaunchAmount();
 ```
