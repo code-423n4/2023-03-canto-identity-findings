@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "dec3ntraliz3d",
+  "risk": "3",
+  "title": "Namespace.sol fuse() function incorrectly calculates fused bytes",
+  "issueId": 202,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/202"
+}
