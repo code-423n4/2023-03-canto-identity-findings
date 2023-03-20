@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "igingu",
+  "risk": "3",
+  "title": "Profile Picture: Address Registry should maintain storage between consecutive deploys",
+  "issueId": 149,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/149"
+}
