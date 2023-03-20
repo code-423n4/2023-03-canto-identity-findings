@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "MohammedRizwan",
+  "risk": "2",
+  "title": "Malicious owner can change the $NOTE token address to address(0) and the critical function lacks address(0) check.",
+  "issueId": 203,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/203"
+}
