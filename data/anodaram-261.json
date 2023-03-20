@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "anodaram",
+  "risk": "2",
+  "title": "Why does prelaunch checking do only for namespaceNFT case in Tray.burn?",
+  "issueId": 261,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/261"
+}
