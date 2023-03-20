@@ -376,6 +376,22 @@ Checks that involve constants should come before checks that involve state varia
 
 [ProfilePicture.sol#L79-L88](https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L79-L88)
 
+##
+
+### [G-17] Use delete to clear variables instead of zero assignment to save gas 
+
+FILE : 2023-03-canto-identity/canto-pfp-protocol/src/ProfilePicture.sol
+
+   103:    nftID = 0; 
+
+[ProfilePicture.sol#L103](https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L103)
+
+FILE : 2023-03-canto-identity/canto-bio-protocol/src/Bio.sol
+
+   93:   bytesOffset = 0;
+
+[Bio.sol#L93](https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L93)
+
 
 
 
