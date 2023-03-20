@@ -6,7 +6,7 @@
 | R  | Refactor | Code changes |
 | O | Ordinary | Commonly found issues |
 
-| Total Found Issues | 16 |
+| Total Found Issues | 17 |
 |:--:|:--:|
 
 
@@ -19,8 +19,9 @@
 | [N-04] | Critical address changes should use 2 step procedure | 4 |
 | [N-05] | Event missing parameter| 1 |
 | [N-06] | Initial value check missing in `change` functions | 7 |
+| [N-07] | Lack of input validation for amount of trays minted in `buy` function | 1|
 
-| Total Non-Critical Issues | 6 |
+| Total Non-Critical Issues | 7 |
 |:--:|:--:|
 
 ### Refactor Issues
@@ -226,6 +227,32 @@ There is missing initial value  in `change` functions. Checking initial values b
 Reccomendation
 Checking whether the current value and the new value are the same should be added
 
+### [N-07] Lack of input validation for amount of trays minted in `buy` function
+Context:
+```solidity
+150:   function buy(uint256 _amount) external
+151:        uint256 startingTrayId = _nextTokenId();
+152:        if (prelaunchMinted == type(uint256).max) {
+153:            // Still in prelaunch phase
+154:            if (msg.sender != owner) revert OnlyOwnerCanMintPreLaunch();
+155:            if (startingTrayId + _amount - 1 > PRE_LAUNCH_MINT_CAP) revert MintExceedsPreLaunchAmount(); 
+156:        } else {
+157:            SafeTransferLib.safeTransferFrom(note, msg.sender, revenueAddress, _amount * trayPrice);
+158:        }
+```
+
+Description:
+In the `buy` function, zero value checks can be made to ensure `_amount` bought is not zero and prevent wastage of gas by transferring zero funds to `revenueAddress`
+
+Recommendation:
+Add a zero value check for `_amount` of trays to be minted:
+
+```solidity
+function buy(uint256 _amount) external {
+    if (amount == 0) revert ZeroTraysBought;
+}
+```
+
 
 ### [R-01] Use `bytes.concat()/string.concat()` instead of `abi.encodePacked()`
 ```solidity
@@ -345,6 +372,8 @@ Reccomendation:
 Use delete instead of zero assignment to clear variables 
 
 ### [R-03] Move validation statements to top of function when validating input parameters
+Context:
+
 ```solidity
 1 result - 1 file
 
@@ -513,3 +542,4 @@ Within a grouping, place the view and pure functions last.
 ```
 
 
+### [R] Convert repeated checks to a single helper function
