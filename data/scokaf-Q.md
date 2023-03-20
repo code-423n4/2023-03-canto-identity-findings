@@ -221,3 +221,50 @@ Manual Analysis
 ### Recommended Mitigation Steps
 
 Immutable Variables should be UPPERCASE
+
+# 8: MISSING NATSPEC
+
+Vulnerability details
+
+## Context:
+
+Missing NatSpec
+
+Consider adding specifications to the following code blocks:
+
+## Proof of Concept
+
++ ***File: Tray.sol***
+
+    error CallerNotAllowedToBurn();
+    error TrayNotMinted(uint256 tokenID);
+    error OnlyOwnerCanMintPreLaunch();
+    error MintExceedsPreLaunchAmount();
+    error PrelaunchTrayCannotBeUsedAfterPrelaunch(uint256 startTokenId);
+    error PrelaunchAlreadyEnded();
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L85-L90
+
++ ***File: Namespace.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L61-L67
+
++ ***File: Bio.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L28-L29
+
++ ***File: ProfilePicture.sol***
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L50-L52
+
++ ***File: Utils.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L12-L13
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Add NatSpec comments accordingly.
+
