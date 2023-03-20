@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Emmanuel",
+  "risk": "3",
+  "title": "Fuse function only allows creation of emoji typed characters, and does not allow creation of other font classes like text. ",
+  "issueId": 269,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/269"
+}
