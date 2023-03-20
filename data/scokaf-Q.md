@@ -287,3 +287,28 @@ Manual Analysis
 
 Create upgrade and stop scenario
 
+# 10: USE OF bytes.concat() INSTEAD OF abi.encodePacked(,)
+
+Vulnerability details
+
+## Context:
+
+Use of bytes.concat() instead of abi.encodePacked(,)
+
+## Proof of Concept
+
+Rather than using abi.encodePacked for appending bytes, since version 0.8.4, bytes.concat() is enabled
+
+#### 1 Result - 17 Instances
+
+> ***File: Utils.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L104-L206
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Since version 0.8.4 for appending bytes, bytes.concat() can be used instead of abi.encodePacked(,).
