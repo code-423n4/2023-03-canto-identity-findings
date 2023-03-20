@@ -71,5 +71,3 @@ L174:
 
 The function [`_drawing()`](https://github.com/code-423n4/2023-03-canto-identity/blob/main/canto-namespace-protocol/src/Tray.sol#L245-L273) does a lot of calculations. There is no risk of over/underflow because there is no input parameter that the user can choose. The default "checked" behavior costs more gas when calculating, because under-the-hood the EVM does extra checks for over/underflow. Adding unchecked for the whole `_drawing()` function saves around 150 gas.
 
-Unchecked can also be done for incremeting or decrementing by 1
-
