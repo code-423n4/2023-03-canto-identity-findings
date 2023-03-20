@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "Breeje",
+  "risk": "2",
+  "title": "`buy()` method of `Tray.sol` may exceed Block Limit",
+  "issueId": 235,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/235"
+}
