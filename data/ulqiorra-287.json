@@ -1,0 +1,8 @@
+{
+  "contest": 223,
+  "handle": "ulqiorra",
+  "risk": "3",
+  "title": "SVG script injection in Bio.tokenURI",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2023-03-canto-identity-findings/issues/287"
+}
