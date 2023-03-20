@@ -100,3 +100,31 @@ Manual Analysis
 ### Recommended Mitigation Steps
 
 Consider adding a limit of 120 characters or less to prevent large lines.
+
+# 4: INTERCHANGEABLE USAGE OF UINT AND UINT256
+
+Vulnerability details
+
+## Context:
+
+Interchangeable usage of uint and uint256. Below are instances where uint was used rather than uint256 like in the rest of the code.
+
+## Proof of Concept
+
+> ***File: src/Bio.sol***
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L47
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L49
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L55-L56
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L100
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Consider using only one approach throughout the codebase, e.g. only uint or only uint256.
