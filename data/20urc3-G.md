@@ -25,4 +25,16 @@ function mint(address _nftContract, uint256 _nftID) external {
     pictureData.nftID = _nftID;
     _mint(msg.sender, tokenId);
     emit PfpAdded(msg.sender, tokenId, _nftContract, _nftID);
-}```
+}
+```
+
+
+If it is preferred to change the visibility of the nftContractand nftID variables to private, this will save significant gas.
+
+```
+    struct ProfilePictureData {
+        /// @notice Reference to the NFT contract
+        address nftContract;
+        /// @notice Referenced nft ID
+        uint256 nftID;
+    }```
