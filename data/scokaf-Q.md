@@ -158,3 +158,26 @@ Add to Blacklist function and modifier.
         require(!_blacklistedExtensions.contains(extension), "Extension blacklisted");
         _;
     }
+
+# 6: USE UNDERSCORES FOR NUMBER LITERALS
+
+Vulnerability details
+
+## Context:
+
+There are occasions where certain numbers have been hardcoded, either in variables or in the code itself. Large numbers can become hard to read.
+
+## Proof of Concept
+
+> ***File: src/Utils.sol*** 
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Utils.sol#L258-L259
+
+## Tools Used
+
+Manual Analysis
+
+### Recommended Mitigation Steps
+
+Consider using underscores for number literals to improve their readability.
+
