@@ -41,7 +41,7 @@ index 4796cf6..e9a373c 100644
      ) ERC721A("Namespace Tray", "NSTRAY") Owned(msg.sender) {
          lastHash = _initHash;
 -        trayPrice = _trayPrice;
-+        trayPrice = _trayPrice; //@audit (QA) This need to be expressed in $NOTE decimal (1e18), should there be a require statement here against a minimal or maximum to be safe?
++        trayPrice = _trayPrice; //@audit (QA) This need to be expressed in $NOTE decimal (1e18), I would recommend a require statement here against a minimal or maximum to be safe.
          revenueAddress = _revenueAddress;
          note = ERC20(_note);
          namespaceNFT = _namespaceNFT;
