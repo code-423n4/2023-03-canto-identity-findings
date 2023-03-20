@@ -148,6 +148,41 @@ For example, the following errors could use parameters:
 https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Tray.sol#L87-L88
 
 ```solidity
-    error OnlyOwnerCanMintPreLaunch();
-    error MintExceedsPreLaunchAmount();
+File: Tray.sol
+
+87:    error OnlyOwnerCanMintPreLaunch();
+88:    error MintExceedsPreLaunchAmount();
+```
+
+## 9. Use named parameters for mapping type declarations
+
+Consider using named parameters in mappings to improve readability. Note: This feature is present since Solidity 0.8.18
+
+For example:
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-pfp-protocol/src/ProfilePicture.sol#L32
+
+```diff
+-    mapping(uint256 => ProfilePictureData) private pfp;
++    mapping(uint256 pfpID => ProfilePictureData) private pfp;
+```
+
+https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-bio-protocol/src/Bio.sol#L18
+
+```diff
+-    mapping(uint256 => string) public bio;
++    mapping(uint256 id => string bioText) public bio;
+```
+
+File: `Namespace.sol` [Line 42-49](https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab62cc3fd4e8f4e24e66/canto-namespace-protocol/src/Namespace.sol#L42-L49)
+
+```diff
+-    mapping(string => uint256) public nameToToken;
++    mapping(string name => uint256 nftId) public nameToToken;
+
+-    mapping(uint256 => string) public tokenToName;
++    mapping(uint256 nftId => string name) public tokenToName;
+
+-    mapping(uint256 => Tray.TileData[]) private nftCharacters;
++    mapping(uint256 nftId => Tray.TileData[]) private nftCharacters;
 ```
