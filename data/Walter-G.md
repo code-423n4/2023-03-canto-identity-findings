@@ -29,6 +29,6 @@ https://github.com/code-423n4/2023-03-canto-identity/blob/077372297fc419ea7688ab
 by making the function look like this:
 https://github.com/dicolas/Code4rena/blob/4ffefc9fbbcb574bf68e1c6ed6ca5be92278e2bf/GasCanto#L2-L69
 
-other than that,we dont need to check all of this data just to change a "prevByteWasContinuation" because that wont be used,so for that reason,the big if block in Bio can be removed by saving 577 wei
+other than that,we dont need to check all of this data just to change "prevByteWasContinuation" because that wont be used,so for that reason,the big if block in Bio can be removed by saving 577 wei
 making the final solution of the 6-7,something like this
 https://github.com/dicolas/Code4rena/blob/4ffefc9fbbcb574bf68e1c6ed6ca5be92278e2bf/GasCanto#L72-L124
